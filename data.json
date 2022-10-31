@@ -1,0 +1,91 @@
+{
+  "education":[
+    {
+      "school":"VIT Vellore",
+      "period":"2019-2023",
+      "degree":"B.Tech Computer Science and Engineering",
+      "score":8.75
+    },
+    {
+      "school":"FIITJEE Junior College",
+      "period":"2017-2019",
+      "degree":"Maths Physics and Chemistry",
+      "score":97.5
+
+    }
+  ],
+  "projects": [
+    {
+      "project_name": "Mahabharath Wiki WebApp",
+      "description": "An Web application, which includes details of all characters in one of the greatest इतिहास. Web app is using React as the Frontend and Express and NodeJS for backend. Further, contents are loaded from Wikipedia and MediaWiki public APIs.",
+      "start_date": "2021-05-12",
+      "percent_complete": 80,
+      "tech_used": ["ReactJS", "RESTAPI", "NodeJS", "MediaWikiAPI", "JSON"],
+      "project_link":"https://mahabharath-wiki.netlify.app/",
+      "end_date":"2022-05-31"
+    },
+    {
+      "project_name": "Dynamic Greetings",
+      "description": "A simple Javascript Project, through which, we can share our greets to our dear ones !!.Dynamic creative customizable greetings that can be conveyed easily to your dear ones !",
+      "start_date": "2022-10-25",
+      "percent_complete": 100,
+      "tech_used": ["JS", "CSS", "HTML", "DOM", "Animations"],
+      "project_link":"https://creative-greets.netlify.app/",
+      "end_date":"2020-12-12"
+    },
+    {
+      "project_name": "Blazing TODO C++ CLI",
+      "description": "This project was made as part of the event - <a href=https://fullstack.gdc.network>'Global Digital Corps - Software Engineering Test Problem | Priority list' </a>. Help, List, Add, Delete, Complete, Generate CLI commands included.",
+      "start_date": "2021-12-18",
+      "percent_complete": 100,
+      "tech_used": ["C++", "OOP", "Modular Programming", "CLI"],
+      "project_link":"https://github.com/Abhiramborige/CPP-TODO-CLI/",
+      "end_date":"2021-12-20"
+    },
+    {
+      "project_name": "Kaleyra SMS Demo",
+      "description": "Kaleyra SMS API Prototype Demonstration. Login/Signup. User can choose what he/she will consume (breakfast/snacks/both) Admin can send message to all the users on whether what he/she has chosen (breakfast/snacks/both). In this way, the food wastage is minimized and attendance can be smoothly proceeded.",
+      "start_date": "2022-09-08",
+      "percent_complete": 50,
+      "tech_used": ["React", "HTML", "RESTAPI", "MongoDB", "JWT"],
+      "project_link":"https://github.com/Abhiramborige/Kaleyra-SMS-Demo",
+      "end_date":"2022-09-10"
+    },
+    {
+      "project_name": "Online Voting Using Blockchain",
+      "description": "A simple Web application using Flask framework, to implement online voting system, powered by Blockchain Technology. A simple Cryptographic, Blockchain implemented Online Voting System",
+      "start_date": "2020-10-20",
+      "percent_complete": 70,
+      "tech_used": ["Python", "Flask", "HTML", "Blockchain"],
+      "project_link":"https://github.com/Abhiramborige/Online-Voting-Using-Blockchain/",
+      "end_date":"2021-1-22"
+    },
+    {
+      "project_name": "Github Basic Dependency Walker.",
+      "description": "This project was made as part of the event - <a href=https://fullstack.gdc.network>'Dyte VIT Recruitment 2023.' </a>. The aim of the assignment is to make a node dependency walker that scans all the installed packages and check whether all are above a particular version mentioned or not. The project's aim is also to make an issue pull request with modification on what package to be upgraded to, with version mentioned.",
+      "start_date": "2022-05-31",
+      "percent_complete": 35,
+      "tech_used": ["NodeJS", "GithubAPI", "RESTAPI", "CLI"],
+      "project_link":"https://github.com/dyte-submissions/dyte-vit-2022-Abhiramborige",
+      "end_date":"2022-06-02"
+    },
+    {
+      "project_name": "Crypto Systems",
+      "description": "This repo will contain the algorithms for encryption and decryption of messages and ciphers respectively !!",
+      "start_date": "2020-08-04",
+      "percent_complete": 80,
+      "tech_used": ["Python", "Cryptography"],
+      "project_link":"https://github.com/Abhiramborige/Crypto-systems",
+      "end_date":"2022-05-30"
+    },
+    {
+      "project_name": "BPB Foods",
+      "description": "Website as Prototype for demonstration of an academic course project component. (Lean Startup Management)",
+      "start_date": "2022-04-24",
+      "percent_complete": 90,
+      "tech_used": ["EJS", "NodeJS", "JSON", "CSS", "Bootstrap"],
+      "project_link":"https://github.com/Abhiramborige/BPB-Foods",
+      "end_date":"2022-04-26"
+    }
+  ]
+}
