@@ -4,13 +4,13 @@
       "school":"VIT Vellore",
       "period":"2019-2023",
       "degree":"B.Tech Computer Science and Engineering",
-      "score":''
+      "score":0.00
     },
     {
       "school":"FIITJEE Junior College",
       "period":"2017-2019",
       "degree":"Maths Physics and Chemistry",
-      "score":''
+      "score":0.00
 
     }
   ],
