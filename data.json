@@ -5,22 +5,24 @@
       "period":"2019-2023",
       "degree":"B.Tech Computer Science and Engineering",
       "score":0.00
-    },
-    {
-      "school":"FIITJEE Junior College",
-      "period":"2017-2019",
-      "degree":"Maths Physics and Chemistry",
-      "score":0.00
-
     }
   ],
   "projects": [
+    {
+      "project_name": "Rooftop solar power estimation on aerial Images",
+      "description":"A Flask based web application embedded with U-Net based deep learning model that takes the aerial imagery from Bing maps as input to predict the estimated usable rooftop area for small scale solar power establishments for the end user. It also includes the expenditure estimations, annual power generation, with minimum human intervention on entering the details.",
+      "start_date": "2022-11-01",
+      "percent_complete": 100,
+      "tech_used":["Environmental Awareness","Flask","UNET","Deep Learning", "Python", "API"],
+      "project_link":"",
+      "end_date":"2023-05-10"
+    },
     {
       "project_name": "Mahabharath Wiki WebApp",
       "description": "An Web application, which includes details of all characters in one of the greatest इतिहास. Web app is using React as the Frontend and Express and NodeJS for backend. Further, contents are loaded from Wikipedia and MediaWiki public APIs.",
       "start_date": "2021-05-12",
       "percent_complete": 80,
-      "tech_used": ["ReactJS", "RESTAPI", "NodeJS", "MediaWikiAPI", "JSON"],
+      "tech_used": ["ReactJS", "REST-API", "NodeJS", "MediaWikiAPI", "JSON"],
       "project_link":"https://mahabharath-wiki.netlify.app/",
       "end_date":"2022-05-31"
     },
@@ -38,7 +40,7 @@
       "description": "This project was made as part of the event - <a href=https://fullstack.gdc.network>'Global Digital Corps - Software Engineering Test Problem | Priority list' </a>. Help, List, Add, Delete, Complete, Generate CLI commands included.",
       "start_date": "2021-12-18",
       "percent_complete": 100,
-      "tech_used": ["C++", "OOP", "Modular Programming", "CLI"],
+      "tech_used": ["C++", "OOPS", "Modular Programming", "CLI", "STL"],
       "project_link":"https://github.com/Abhiramborige/CPP-TODO-CLI/",
       "end_date":"2021-12-20"
     },

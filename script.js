@@ -25,14 +25,6 @@ const project_card = (row) => {
             </div>
             <p>${row.description}</p>
             <div class="card_pt1_profiles">
-                    <div class="card_pt1_date">
-                    <p>Stack used: </p>
-                    <span>
-                        ${row.tech_used.map((element) => {
-                          return element;
-                        })}
-                    </span>
-                </div>
               <div
                 class="card_pt1_date"
               >
@@ -55,6 +47,14 @@ const project_card = (row) => {
   ).getFullYear()}
                 </span>
               </div>
+              <div class="card_pt1_date" style="flex-basis:250px">
+                    <p>Stack used: </p>
+                    <span>
+                        ${row.tech_used.map((element) => {
+                          return element;
+                        })}
+                    </span>
+              </div>
             </div>
           </div>
           <div class="card_pt2">
@@ -65,13 +65,13 @@ const project_card = (row) => {
                   row.percent_complete <= 50
                     ? `"background-image: linear-gradient(${
                         (row.percent_complete * 360) / 100 + 90
-                      }deg, transparent 50%, #c9dae0 50%),
-                  linear-gradient(90deg, #c9dae0 50%, transparent 50%);
+                      }deg, transparent 50%, #6D8289 50%),
+                  linear-gradient(90deg, #6D8289 50%, transparent 50%);
                   background-color: #eb4c4c;"`
                     : `"background-image: linear-gradient(${
                         (row.percent_complete * 360) / 100 - 90
                       }deg, transparent 50%, #1684f8 50%), 
-                linear-gradient(90deg, #c9dae0 50%, transparent 50%)"`
+                linear-gradient(90deg, #6D8289 50%, transparent 50%)"`
                 }
               >
                 <div class="card_pt2_percentage_circle_in">
@@ -96,6 +96,20 @@ const badge = (row) => {
   `;
 };
 
+// https://stackoverflow.com/questions/1533910/randomize-a-sequence-of-div-elements-with-jquery
+$.fn.randomize = function (selector) {
+  (selector ? this.find(selector) : this).parent().each(function () {
+    $(this)
+      .children(selector)
+      .sort(function () {
+        return Math.random() - 0.5;
+      })
+      .detach()
+      .appendTo(this);
+  });
+  return this;
+};
+
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry) => {
     if (entry.isIntersecting) {
@@ -112,6 +126,7 @@ $(document).ready(function () {
     all_projects += project_card(row);
   });
   $(".projects").append(all_projects);
+  $(".projects").randomize("div.card");
 
   var all_schools = "";
   $.each(data.education, (index, row) => {
@@ -175,7 +190,7 @@ $(document).ready(function () {
           $(".navbar").removeClass("navbar_show");
           $(this).siblings().removeClass("hidden_nav_icons");
           $(this).children().last().remove();
-          var last_icon=$(this);
+          var last_icon = $(this);
           $(this).remove();
           $(".navbar").prepend(last_icon);
           $(".navbar").nav_icon_pos();
@@ -209,12 +224,12 @@ $(document).ready(function () {
   });
 
   $(".navbar").on({
-    scroll:function(){
+    scroll: function () {
       console.log($(this));
-      var last_icon=$(this).children().last();
+      var last_icon = $(this).children().last();
       $(this).children().last().remove();
       $(this).prepend(last_icon);
       $(this).nav_icon_pos();
-    }
-  })
+    },
+  });
 });

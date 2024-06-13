@@ -8,8 +8,17 @@ body {
   grid-template-rows: auto;
   max-width: 96vw;
   justify-content: center;
+  background-color: black;
+  color: white;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
-
+a{
+  font-style: italic;
+  color: #5c7282;
+}
+article{
+  margin-top: inherit;
+}
 
 .hamberger{
   display: none !important;
@@ -17,6 +26,7 @@ body {
   top:10px;
   right: 10px;
   cursor: pointer;
+  width: fit-content;
 }
 
 .card,
@@ -24,8 +34,7 @@ body {
   display: flex;
   flex-direction: row;
   padding: 15px;
-  background: #ffffff;
-  border: 4px solid #c9dae0;
+  border: 4px solid #6bbad6;
   box-sizing: border-box;
   border-radius: 24px;
   justify-content: space-between;
@@ -76,9 +85,7 @@ body {
   font-size: 18px;
   margin: 4px 0;
 }
-.card_pt1_date {
-  max-width: 40%;
-}
+
 .card_pt1_date > span {
   word-break: break-word;
 }
@@ -95,9 +102,9 @@ body {
   font-weight: bold;
   font-size: 32px;
   margin: 0px;
+  color: lightgray;
 }
 .card_pt1_title > a {
-  color: black;
   text-decoration: none;
 }
 
@@ -121,21 +128,19 @@ body {
   height: 130px;
   background-color: #1684f8;
   border-radius: 50%;
-  background-image: linear-gradient(126deg, transparent 50%, #c9dae0 50%),
-    linear-gradient(90deg, #c9dae0 50%, transparent 50%);
 }
 .card_pt2_percentage_circle_in {
   width: 100px;
   height: 100px;
-  background-color: #ffff;
+  background-color: lightskyblue;
   z-index: 1;
   border-radius: 50%;
+  color: darkblue;
 }
 .card_pt2_percentage_circle_in > span {
   font-style: normal;
   font-weight: bold;
   font-size: 2rem;
-  color: #000000;
 }
 
 .card_pt1_profiles {
@@ -143,7 +148,7 @@ body {
   flex-direction: row;
   align-items: flex-start;
   justify-content: space-between;
-  width: 95%;
+  max-width: 120%;
 }
 
 .card_pt1_date_visual {
@@ -177,8 +182,6 @@ body {
   flex-wrap: wrap;
   gap: 10px;
   justify-content: center;
-  align-items: center;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
   margin-top: 10px;
 }
 
@@ -212,14 +215,13 @@ body {
   align-items: center;
   justify-content: space-evenly;
   z-index: 1;
-  background: white;
 }
 
 .navbar > a, .hamberger > a {
   font-size: x-large;
   width: fit-content;
   text-decoration: none;
-  color: black;
+  color: white;
   word-break: break-word;
   display: flex;
   justify-content: center;
@@ -264,7 +266,7 @@ body {
     position: fixed;
     width: 100vh;
     height: 100vh;
-    background-color: #9dcef1da;
+    background-color: #6D8289 ;
     overflow: auto;
     /* scroll-snap-type: y mandatory; */
   }
@@ -278,7 +280,6 @@ body {
   .hamberger{
     display: block !important;
     z-index: 1;
-    background-color: white;
   }
   body{
     grid-template-rows: 1% 0% 99%;
