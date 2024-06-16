@@ -137,7 +137,6 @@ $(document).ready(function () {
     let angle = 60;
     let length = $(this).children().length;
     let diameter = parseInt($(this).css("width"));
-    console.log(length, diameter / 2);
     $(this)
       .children()
       .each(function () {
@@ -183,14 +182,14 @@ $(document).ready(function () {
         },
         click: function () {
           $(".navbar").removeClass("navbar_show");
-          $(this).siblings().removeClass("hidden_nav_icons");
-          $(this).children().last().remove();
-          var last_icon = $(this);
-          $(this).remove();
-          $(".navbar").prepend(last_icon);
-          $(".navbar").nav_icon_pos();
-          $("section").css("filter", "blur(0px)");
           $(".hamberger").attr("data-click-state", 1);
+          $(this).siblings().removeClass("hidden_nav_icons");
+          $("section").css("filter", "blur(0px)");
+          $(".navbar")
+            .children()
+            .each(function () {
+              $(this).css("transform", "translate(0,0)");
+            });
           $(".hamberger").children().first().children().first().html("menu");
         },
       });
@@ -199,6 +198,7 @@ $(document).ready(function () {
   $(".hamberger").on({
     click: function () {
       if ($(this).attr("data-click-state") == 1) {
+        // navigation on
         $(this).children().first().children().first().html("menu_open");
         $(".navbar").addClass("navbar_show");
         $("section").css("filter", "blur(3px)");
@@ -218,38 +218,25 @@ $(document).ready(function () {
     },
   });
 
+  // https://stackoverflow.com/questions/10605197/detect-if-user-is-scrolling
+  var $userHasScrolled = false
   $(".navbar").on({
-    scroll: function () {
-      console.log($(this));
-      var last_icon = $(this).children().last();
-      $(this).children().last().remove();
-      $(this).prepend(last_icon);
-      $(this).nav_icon_pos();
+    scroll: function (e) {
+      if($userHasScrolled === false){
+        console.log("scroll happened")
+        var last_icon = $(this).children().last();
+        var to_display_off_ele = $(this).children().eq(4)
+        $(this).children().last().remove();
+        $(this).prepend(last_icon);
+        $(this).nav_icon_pos();
+        $userHasScrolled = true
+      }
+      else{
+        setTimeout(() => {
+          $userHasScrolled = false
+        }, 200);
+      }
     },
   });
 });
 
-
-
-
-$.fn.wheel = function(event) {
-  var delta = 0;
-  if (event.wheelDelta) {(delta = event.wheelDelta / 120);}
-  else if (event.detail) {(delta = -event.detail / 3);}
-  handle(delta);
-  if (event.preventDefault) {(event.preventDefault());}
-  event.returnValue = false;
-}
-
-function handle(delta) {
-  var time = 1000;
-  var distance = 300;
-  $('html, body').stop().animate({
-      scrollTop: $(window).scrollTop() - (distance * delta)
-  }, time );
-}
-
-if (window.addEventListener) {
-  window.addEventListener('DOMMouseScroll', wheel, false);
-}
-window.onmousewheel = document.onmousewheel = wheel;
