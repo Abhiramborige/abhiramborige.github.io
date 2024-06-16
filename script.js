@@ -19,70 +19,65 @@ const project_card = (row) => {
   ];
   return `
     <div class="card hidden">
-          <div class="card_pt1">
-            <div class="card_pt1_title">
-              <a href=${row.project_link}><h2>${row.project_name}</h2></a>
-            </div>
-            <p>${row.description}</p>
-            <div class="card_pt1_profiles">
-              <div
-                class="card_pt1_date"
-              >
-                <p>Start Date</p>
-                <span>
-                ${months[new Date(row.start_date).getMonth()]},${" "}
-                ${new Date(row.start_date).getDate()} ${new Date(
-    row.start_date
-  ).getFullYear()}
-                </span>
-              </div>
-              <div
-                class="card_pt1_date"
-              >
-                <p>End Date</p>
-                <span>
-                ${months[new Date(row.end_date).getMonth()]},${" "}
-                ${new Date(row.end_date).getDate()} ${new Date(
-    row.end_date
-  ).getFullYear()}
-                </span>
-              </div>
-              <div class="card_pt1_date" style="flex-basis:250px">
-                    <p>Stack used: </p>
-                    <span>
-                        ${row.tech_used.map((element) => {
-                          return element;
-                        })}
-                    </span>
-              </div>
-            </div>
-          </div>
-          <div class="card_pt2">
-            <div class="card_pt2_percentage">
-              <div
-                class="card_pt2_percentage_circle"
-                style=${
-                  row.percent_complete <= 50
-                    ? `"background-image: linear-gradient(${
-                        (row.percent_complete * 360) / 100 + 90
-                      }deg, transparent 50%, #6D8289 50%),
-                  linear-gradient(90deg, #6D8289 50%, transparent 50%);
-                  background-color: #eb4c4c;"`
-                    : `"background-image: linear-gradient(${
-                        (row.percent_complete * 360) / 100 - 90
-                      }deg, transparent 50%, #1684f8 50%), 
-                linear-gradient(90deg, #6D8289 50%, transparent 50%)"`
-                }
-              >
-                <div class="card_pt2_percentage_circle_in">
-                    <span>${row.percent_complete}</span>
-                    %
-                </div>
-              </div>
+      <div class="card_pt1">
+        <div class="card_pt1_title">
+          <a href=${row.project_link}><h2>${row.project_name}</h2></a>
+        </div>
+        <p>${row.description}</p>
+      </div>
+      <div class="card_pt2">
+        <div class="card_pt2_percentage">
+          <div
+            class="card_pt2_percentage_circle"
+            style=${
+              row.percent_complete <= 50
+                ? `"background-image: linear-gradient(${
+                    (row.percent_complete * 360) / 100 + 90
+                  }deg, transparent 50%, #6D8289 50%),
+              linear-gradient(90deg, #6D8289 50%, transparent 50%);
+              background-color: #eb4c4c;"`
+                : `"background-image: linear-gradient(${
+                    (row.percent_complete * 360) / 100 - 90
+                  }deg, transparent 50%, #1684f8 50%), 
+            linear-gradient(90deg, #6D8289 50%, transparent 50%)"`
+            }
+          >
+            <div class="card_pt2_percentage_circle_in">
+                <span>${row.percent_complete}</span>
+                %
             </div>
           </div>
         </div>
-    `;
+      </div>
+      
+
+      <div class="card_pt1_profiles">
+        <div class="card_pt1_date">
+          <p>Start Date</p>
+          <span>
+          ${months[new Date(row.start_date).getMonth()]},${" "}
+          ${new Date(row.start_date).getDate()} ${new Date(row.start_date).getFullYear()}
+          </span>
+        </div>
+        <div class="card_pt1_date">
+          <p>End Date</p>
+          <span>
+          ${months[new Date(row.end_date).getMonth()]},${" "}
+          ${new Date(row.end_date).getDate()} ${new Date(row.end_date).getFullYear()}
+          </span>
+        </div>
+        <div class="card_pt1_date" style="flex-basis:50%">
+          <p>Stack used: </p>
+          <span>
+              ${row.tech_used.map((element) => {
+                return " "+element;
+              })}
+          </span>
+        </div>
+      </div>
+
+    </div>
+  `;
 };
 
 const badge = (row) => {
@@ -233,3 +228,28 @@ $(document).ready(function () {
     },
   });
 });
+
+
+
+
+$.fn.wheel = function(event) {
+  var delta = 0;
+  if (event.wheelDelta) {(delta = event.wheelDelta / 120);}
+  else if (event.detail) {(delta = -event.detail / 3);}
+  handle(delta);
+  if (event.preventDefault) {(event.preventDefault());}
+  event.returnValue = false;
+}
+
+function handle(delta) {
+  var time = 1000;
+  var distance = 300;
+  $('html, body').stop().animate({
+      scrollTop: $(window).scrollTop() - (distance * delta)
+  }, time );
+}
+
+if (window.addEventListener) {
+  window.addEventListener('DOMMouseScroll', wheel, false);
+}
+window.onmousewheel = document.onmousewheel = wheel;
