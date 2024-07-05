@@ -1,4 +1,4 @@
-import data from "./data.json" assert { type: "json" };
+import data from "./data.json" with { type: "json" };
 
 console.log(data);
 
@@ -133,20 +133,38 @@ $(document).ready(function () {
     observer.observe(card);
   });
 
+  let curr_state_deg = []
+  let $increment = false
+  let angle = 60;
+
   $.fn.nav_icon_pos = function () {
-    let angle = 60;
     let length = $(this).children().length;
     let diameter = parseInt($(this).css("width"));
+    let index = 0;
     $(this)
       .children()
       .each(function () {
-        angle = parseInt((angle + 360 / (2 * length)) % 180);
+        if(curr_state_deg[index] === undefined){
+          angle = parseInt((angle + 360 / (2 * length)) % 180);
+          curr_state_deg.push(angle)
+        }
+        else{
+          if ($increment === true){
+            angle = (curr_state_deg[index] + (180/length)) % 180;
+            curr_state_deg[index] = angle;
+          }
+          else{
+            angle = curr_state_deg[index];
+          }
+        }
+
         $(this).css(
           "transform",
           `rotate(${angle}deg) translateY(${
             diameter / 2 - 25
           }px) rotate(-${angle}deg)`
         );
+        index = index + 1;
       });
     return this;
   };
@@ -202,6 +220,7 @@ $(document).ready(function () {
         $(this).children().first().children().first().html("menu_open");
         $(".navbar").addClass("navbar_show");
         $("section").css("filter", "blur(3px)");
+        $increment = false
         $(".navbar").nav_icon_pos();
         $(this).attr("data-click-state", 0);
       } else {
@@ -223,18 +242,19 @@ $(document).ready(function () {
   $(".navbar").on({
     scroll: function (e) {
       if($userHasScrolled === false){
+        $increment = true
         console.log("scroll happened")
-        var last_icon = $(this).children().last();
-        var to_display_off_ele = $(this).children().eq(4)
-        $(this).children().last().remove();
-        $(this).prepend(last_icon);
+        // var last_icon = $(this).children().last();
+        // var to_display_off_ele = $(this).children().eq(4)
+        // $(this).children().last().remove();
+        // $(this).prepend(last_icon);
         $(this).nav_icon_pos();
         $userHasScrolled = true
       }
       else{
         setTimeout(() => {
           $userHasScrolled = false
-        }, 200);
+        }, 100);
       }
     },
   });
